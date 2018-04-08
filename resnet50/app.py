@@ -10,6 +10,8 @@
    author: Yi Zhang <beingzy@gmail.com>
    date: 2018/04/07
 """
+from __future__ import absolute_import
+
 import os
 import sys
 import logging
@@ -24,7 +26,7 @@ from keras.applications import ResNet50
 from keras.preprocessing.image import img_to_array
 from PIL import Image
 
-from model_server import ModelResNet50
+from utils.model_server import ModelResNet50
 
 
 app = flask.Flask(__name__)
