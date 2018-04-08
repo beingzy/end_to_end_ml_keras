@@ -30,12 +30,6 @@ from utils.model_server import ModelResNet50
 
 
 app = flask.Flask(__name__)
-model = None
-
-
-def load_model():
-    global model
-    model = ResNet50(weights="imagenet")
 
 
 def prepare_image(image, target=(224, 224)):
@@ -68,7 +62,6 @@ def predict():
 
             # classify the iput data and then initialize the list of
             # predictions to return to the client
-            #preds = model.predict(image)
             preds = ModelResNet50.predict(image)
             results = imagenet_utils.decode_predictions(preds)
             resp["predictions"] = []
@@ -83,5 +76,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    load_model()
     app.run()

@@ -8,7 +8,7 @@ to support real-time application.
    * serve RestNet50 with RESTful API:
    ```bash
    conda activate keras_tf
-   ipython resnet50.py
+   ipython resnet50/app.py
    ```
    RESTful API server URL: 'http://127.0.0.1:5000/'
 
