@@ -1,8 +1,9 @@
-## Recognize Hand-written Digit Images with 2D Convolutional NeuralNets
+## Introduction
+In this project, we will create a number of examples to illustrate how to train
+neural nets of various architecture and how to serve trained model via RESTful
+to support real-time application.
 
-### Introduction
-In this project, we will develop service empowered by 2D CNN to recognize numbers on handwritten images.
-
+### Examples:
 ### Serve RestNet50
    * serve RestNet50 with RESTful API:
    ```bash
