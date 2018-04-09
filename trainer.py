@@ -55,11 +55,6 @@ validation_generator = datagen.flow_from_directory(
 # ---------------------------
 # define convnet architecture
 # ---------------------------
-vgg16_conv_base = VGG16(
-    weights='imagenet',
-    include_top=False,
-    input_shape=(150, 150, 3))
-
 def build_model(base_model):
     """
     """
@@ -89,8 +84,13 @@ if __name__ == "__main__":
     model_name = 'convnet_dog_vs_cat_{}.h5'.format(dt_str)
     model_path = os.path.join('models', model_name)
 
-    sys.stdout('start training...')
-    conv_net = build_model()
+    vgg16_conv_base = VGG16(
+        weights='imagenet',
+        include_top=False,
+        input_shape=(150, 150, 3))
+
+    conv_net = build_model(base_model=vgg16_conv_base)
+    sys.stdout.write('start training...')
     history = conv_net.fit_generator(
         train_generator,
         steps_per_epoch=100,
@@ -99,6 +99,6 @@ if __name__ == "__main__":
         validation_steps=50
     )
 
-    sys.stdout('training is completed')
+    sys.stdout.write('training is completed')
     mode.save(model_path)
-    sys.stdout('saved lastest model at {}'.format(model_path))
+    sys.stdout.write('saved lastest model at {}'.format(model_path))

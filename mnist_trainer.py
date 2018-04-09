@@ -91,15 +91,15 @@ if __name__ == "__main__":
                         **train_config)
 
     # export trained model and history information
-    sys.stdout('training is completed')
+    sys.stdout.write('training is completed')
     dt_str = datetime.now().strftime('%Y%m%d_%H%M%S')
     model_name = 'convnet_dog_vs_cat_{}.h5'.format(dt_str)
     model_path = os.path.join('models', model_name)
     model.save(model_path)
-    sys.stdout('saved lastest model at {}'.format(model_path))
+    sys.stdout.write('saved lastest model at {}'.format(model_path))
 
     outfile = os.path.join('history',
         'convnet_dog_vs_cat_{}_history'.format(dt_str))
     history_df = pd.DataFrame(history.history)
     hustory_df.to_csv(outfile, columns=True, index=False)
-    sys.stdout('succeed in exporting history file!')
+    sys.stdout.write('succeed in exporting history file!')
