@@ -102,3 +102,9 @@ if __name__ == "__main__":
     sys.stdout.write('training is completed')
     mode.save(model_path)
     sys.stdout.write('saved lastest model at {}'.format(model_path))
+
+    outfile = os.path.join('history',
+        'convnet_dog_vs_cat_{}_history'.format(dt_str))
+    history_df = pd.DataFrame(history.history)
+    hustory_df.to_csv(outfile, columns=True, index=False)
+    sys.stdout.write('succeed in exporting history file!')
